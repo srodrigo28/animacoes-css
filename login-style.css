@@ -82,8 +82,8 @@ button{
     background-color: bisque;
     opacity: .8;
 }
-/**
-* Animações
+/**Animações
+* 
 */
 /** Controle Entrada*/
 form{
@@ -125,6 +125,9 @@ form .input-group:nth-child(1){
         transform: translateX(400%)
     }
 }
+
+
+/**Essas não estão sendo usadas*/
 /** Animação 03 :: fade */
 @keyframes fade{
     from {
