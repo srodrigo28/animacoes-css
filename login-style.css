@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 .container{
     height: 100vh;
     background-color: blueviolet;
@@ -13,7 +12,6 @@
     flex-direction: column;
     justify-content: center;
 }
-
 form{
     display: flex;
     align-items: center;
@@ -33,9 +31,10 @@ form h2{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 input{
-    font-size: 1.2em;
+    font-size: .9em;
+    transition: 1s;
 }
-input:focus{
+input:focus, input:hover{
     background-color: bisque !important;
 }
 .input-group{
@@ -49,17 +48,17 @@ input:focus{
 }
 .input-group label{
     color: darkviolet;
-    font-size: 1.7em;
+    font-size: 1.2em;
     font-weight: bold;
 }
 input[type="text"]::placeholder{
     color: darkviolet;
 }
-#contact input[type="password"]{
+input[type="password"]{
     padding-top: 22px;
     text-align: center;
 }
-#contact input[type="password"]::placeholder{
+input[type="password"]::placeholder{
     text-align: center;
     color: darkviolet;
     box-sizing: border-box;
@@ -75,33 +74,36 @@ input[type="text"]::placeholder{
     font-weight: bold;
     box-shadow: 0 5px 5px rgba(0,0,0,0.1);
 }
-
+button{
+    transition: 1s;
+    font-size: 1.2em;
+}
 .input-group button:hover{
     background-color: bisque;
     opacity: .8;
 }
-
 /**
 * Animações
 */
-
-.form-hide{
-    animation: moveLeft 7s; /** forwards */
-    /* animation: down 3s; * forwards */
-    animation-timing-function: ease-out forwards;
-}
-
+/** Controle Entrada*/
 form{
     animation: moveRight;
     /* animation: fade; */
-    animation-duration: 5s;
+    animation-duration: 3s;
 }
-
+/** Controle Saída*/
+.form-saida{
+    animation: moveLeft 5s; /** forwards */
+    /* animation: down 3s; * forwards */
+    animation-timing-function: ease-out forwards;
+}
+/** Out Exemplo
 form .input-group:nth-child(1){
     animation: moveRight 800ms;
     animation-delay: 300ms;
 }
-
+*/
+/** Animação 01 :: moveRight Entrada*/
 @keyframes moveRight{
     from{
         opacity: 0;
@@ -112,16 +114,18 @@ form .input-group:nth-child(1){
         transform: translateX(0%)
     }
 }
-
+/** Animação 02 :: moveLeft Saída */
 @keyframes moveLeft{
     from{
+        opacity: 1;
         transform: translateX(0%)
     }
     to {
+        opacity: 0;
         transform: translateX(400%)
     }
 }
-
+/** Animação 03 :: fade */
 @keyframes fade{
     from {
         transform: scale(0.1);
@@ -132,7 +136,7 @@ form .input-group:nth-child(1){
         transform: scale(1);
     }
 }
-
+/** Animação 04 :: down */
 @keyframes down{
     from{
         /* transform: translateY(0); */
