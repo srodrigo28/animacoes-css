@@ -19,7 +19,24 @@ form{
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
     gap: 10px;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.3);
+}
+form h2{
+    color: darkviolet;
+    font-weight: bold;
+    font-size: 2.2em;
+    font-stretch: extra-expanded;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+input{
+    font-size: 1.2em;
+}
+input:focus{
+    background-color: bisque !important;
 }
 .input-group{
     width: 100%;
@@ -27,36 +44,104 @@ form{
     align-items: start;
     flex-direction: column;
     justify-content: center;
-    gap: 5px;
+    
+    margin-bottom: 20px;
 }
 .input-group label{
+    color: darkviolet;
+    font-size: 1.7em;
     font-weight: bold;
-    color: #fff;
+}
+input[type="text"]::placeholder{
+    color: darkviolet;
+}
+#contact input[type="password"]{
+    padding-top: 22px;
+    text-align: center;
+}
+#contact input[type="password"]::placeholder{
+    text-align: center;
+    color: darkviolet;
+    box-sizing: border-box;
 }
 .input-group input, button{
     width: 100%;
     border-radius: 7px;
     border: none;
     outline: none;
-    padding: 15px;
-    background-color: #1c1c1c;
-    color: #fff;
+    padding: 28px;
+    color: darkviolet;
+    background-color: #fff;
     font-weight: bold;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.1);
 }
 
 .input-group button:hover{
+    background-color: bisque;
     opacity: .8;
 }
 
+/**
+* Animações
+*/
+
 .form-hide{
-    animation: down 9s ease-out; /** forwards */  
+    animation: moveLeft 7s; /** forwards */
+    /* animation: down 3s; * forwards */
+    animation-timing-function: ease-out forwards;
+}
+
+form{
+    animation: moveRight;
+    /* animation: fade; */
+    animation-duration: 5s;
+}
+
+form .input-group:nth-child(1){
+    animation: moveRight 800ms;
+    animation-delay: 300ms;
+}
+
+@keyframes moveRight{
+    from{
+        opacity: 0;
+        transform: translateX(-200%)
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0%)
+    }
+}
+
+@keyframes moveLeft{
+    from{
+        transform: translateX(0%)
+    }
+    to {
+        transform: translateX(400%)
+    }
+}
+
+@keyframes fade{
+    from {
+        transform: scale(0.1);
+        /* opacity: 0; */
+    }
+    to{ 
+        /* opacity: 1; */
+        transform: scale(1);
+    }
 }
 
 @keyframes down{
     from{
-        transform: translateY(0);
+        /* transform: translateY(0); */
+        transform: scale(1);
+        /* opacity: 0; */
     }
     to{
-        transform: translateY(500vh);
+        /* transform: translateY(30vh); */
+        transform: scale(0);
+        /* opacity: 1; */
     }
 }

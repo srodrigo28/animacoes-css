@@ -14,7 +14,9 @@ form.addEventListener("animationstart", event => {
 })
 
 form.addEventListener("animationend", (event) => {
-    if(event.animationName === "down")
-    form.style.display = "none";
-    document.querySelector("body").style.overflow = "none"
+    if(event.animationName === "down"){
+        // faz o form permanecer fora da tela ate recarregar
+        // form.style.display = "none"; 
+        document.querySelector("body").style.overflow = "none"
+    }
 })
